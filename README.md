@@ -1,6 +1,6 @@
 # PubSub
 ## About
-This simplea app demonstrate [PubSub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) using Node/WS/Express server and WebSocket client APIs.
+This simple app demonstrate [PubSub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) using Node/WS/Express server and WebSocket client APIs.
 ## Usage
 1. Run server.
 ```
