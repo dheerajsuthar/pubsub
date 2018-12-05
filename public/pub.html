@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+
+        div {
+            display: inline;
+        }
+    </style>
+    <script>
+        function publish() {
+            var message = document.getElementById('message').value;
+            var channel = document.getElementById('channel').value;
+
+            var host = window.document.location.host.replace(/:.*/, '');
+            var ws = new WebSocket('ws://' + host + ':8080');
+            ws.onopen = function () {
+                ws.send(JSON.stringify({
+                    request: 'PUBLISH',
+                    message: message,
+                    channel: channel
+                }));
+                ws.close();
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Publisher</h1>
+    <input type="text" id="channel" placeholder="Channel (weather, sports etc.)" />
+    <input type="text" id="message" placeholder="What you want to publish?" />
+    <button onclick="publish()">Publish</button>
+</body>
+
+</html>
